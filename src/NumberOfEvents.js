@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import { updateEvents } from "./App";
 
 class NumberOfEvents extends Component {
   state = {
     numberOfEvents: 32,
-    errorText: '',
+    errorText: "",
   };
 
   handleInputChanged = (event) => {
@@ -11,12 +12,12 @@ class NumberOfEvents extends Component {
     if (value < 1 || value > 32) {
       this.setState({
         numberOfEvents: value,
-        errorText: 'Enter number from 1 to 32',
+        errorText: "Enter number from 1 to 32",
       });
     } else {
       this.setState({
         numberOfEvents: event.target.value,
-        errorText: '',
+        errorText: "",
       });
     }
 

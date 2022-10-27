@@ -1,5 +1,5 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { mount, shallow } from "enzyme";
 import NumberOfEvents from "../NumberOfEvents.js";
 
 describe("<NumberOfEvents /> component", () => {
@@ -24,3 +24,19 @@ describe("<NumberOfEvents /> component", () => {
     ).toBe(32);
   });
 });
+
+describe("<NumberOfEvents /> component", () => {
+    let NumberOfEventsWrapper;
+    beforeAll(() => {
+        NumberOfEventsWrapper = mount(<NumberOfEvents />);
+    });
+
+    test("integration for App, NumberOfEvents, and EventList", () => {
+        const NumberOfEventsState = NumberOfEventsWrapper.state({
+            numberOfEvents: 32,
+            errorText: "",
+          })
+          
+
+    })
+})
