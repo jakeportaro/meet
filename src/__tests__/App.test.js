@@ -96,4 +96,25 @@ describe("<App /> integration", () => {
     expect(NumberOfEventsWrapper.state("numberOfEvents")).toBe(16);
     AppWrapper.unmount();
   });
+
+  test("get list of events matching the number of events entered", async () => {
+    const AppWrapper = mount(<App />);
+    const eventObject = { target: { value: 1 } };
+    const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+    await NumberOfEventsWrapper.instance().handleInputChanged(eventObject);
+    await getEvents();
+    expect(AppWrapper.state("events")).toHaveLength(1);
+    AppWrapper.unmount();
+  });
+
+  test('get list of events matching the content of the mock API', async () => {
+    const AppWrapper = mount(<App />);
+    const eventObject = { target: { value: 1 } };
+    const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+    await NumberOfEventsWrapper.instance().handleInputChanged(eventObject);
+    await getEvents();
+    expect(AppWrapper.state('events')).toEqual([mockData[0]]);
+    AppWrapper.unmount();
+  });
+  
 });
