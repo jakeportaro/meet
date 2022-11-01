@@ -5,6 +5,7 @@ class CitySearch extends Component {
     query: "",
     suggestions: [],
     showSuggestions: undefined,
+    location: [],
   };
   handleInputChanged = (event) => {
     const value = event.target.value;
