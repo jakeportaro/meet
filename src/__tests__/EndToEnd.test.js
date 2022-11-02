@@ -4,7 +4,7 @@ describe('show/hide an event details', () => {
   let browser;
   let page;
   beforeAll(async () => {
-    jest.setTimeout(300000);
+    jest.setTimeout(900000);
     const browser = await puppeteer.launch({
         headless: false,
         slowMo: 250, // slow down by 250ms
@@ -15,9 +15,7 @@ describe('show/hide an event details', () => {
     await page.waitForSelector('.event');
   });
 
-  afterAll(() => {
-    browser.close();
-  });
+  
 
   test('An event element is collapsed by default', async () => {
     const eventDetails = await page.$('.event .event__Details');
