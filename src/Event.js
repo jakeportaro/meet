@@ -42,7 +42,7 @@ class Event extends Component {
             </button>
           </>
         ) : (
-          <button className="show-details" onClick={this.handleDetailsToggled}>
+          <button className="show-details details-btn" onClick={this.handleDetailsToggled}>
             show details
           </button>
         )}
