@@ -25,7 +25,7 @@ describe("<NumberOfEvents /> component", () => {
   });
 });
 
-describe("<NumberOfEvents /> component", () => {
+describe("< NumberOfEvents /> component", () => {
     let NumberOfEventsWrapper;
     beforeAll(() => {
         NumberOfEventsWrapper = mount(<NumberOfEvents />);
