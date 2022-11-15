@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { updateEvents } from "./App";
+//import { updateEvents } from "./App";
+import {ErrorAlert} from "./Alert";
 
 class NumberOfEvents extends Component {
   state = {
@@ -29,6 +30,7 @@ class NumberOfEvents extends Component {
     return (
       <div>
         <div className="number-of-events">
+          <ErrorAlert text={this.state.errorText} />
           <label>
             Number of Events:
             <input
