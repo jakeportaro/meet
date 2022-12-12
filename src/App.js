@@ -78,7 +78,7 @@ class App extends Component {
       return <div className="App" />;
     return (
       <div className="App">
-        <h1>Update App</h1>
+        <h1>Meet App</h1>
         <h4>Search a City to find events!</h4>
         <CitySearch
           locations={this.state.locations}
@@ -101,7 +101,7 @@ class App extends Component {
           <XAxis type="category" dataKey="city" name="city" />
           <YAxis type="number" dataKey="number" name="number of events" />
           <Tooltip cursor={{ strokeDasharray: "3 3" }} />
-          <Scatter name="A school" data={this.getData} fill="#8884d8" />
+          <Scatter data={this.getData} fill="#8884d8" />
         </ScatterChart>
 
         <EventList events={this.state.events} />
