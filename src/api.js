@@ -37,6 +37,7 @@ export const extractLocations = (events) => {
   
     if (token) {
       removeQuery();
+      // eslint-disable-next-line no-useless-concat
       const url = 'https://177dyigb5k.execute-api.us-west-1.amazonaws.com/dev/api/get-events' + '/' + token;
       const result = await axios.get(url);
       if (result.data) {
@@ -87,6 +88,7 @@ const removeQuery = () => {
   const getToken = async (code) => {
     const encodeCode = encodeURIComponent(code);
     const { access_token } = await fetch(
+      // eslint-disable-next-line no-useless-concat
       'https://177dyigb5k.execute-api.us-west-1.amazonaws.com/dev/api/token' + '/' + encodeCode
     )
       .then((res) => {

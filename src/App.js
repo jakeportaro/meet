@@ -6,6 +6,14 @@ import NumberOfEvents from "./NumberOfEvents";
 import { getEvents, extractLocations, checkToken, getAccessToken } from "./api";
 import "./nprogress.css";
 import WelcomeScreen from "./WelcomeScreen";
+import {
+  ScatterChart,
+  Scatter,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+} from "recharts";
 
 class App extends Component {
   state = {
@@ -49,6 +57,18 @@ class App extends Component {
     }
   }
 
+  getData = () => {
+    const { locations, events } = this.state;
+    const data = locations.map((location) => {
+      const number = events.filter(
+        (event) => event.location === location
+      ).length;
+      const city = location.split(", ").shift();
+      return { city, number };
+    });
+    return data;
+  };
+
   componentWillUnmount() {
     this.mounted = false;
   }
@@ -58,17 +78,34 @@ class App extends Component {
       return <div className="App" />;
     return (
       <div className="App">
-        <h1>Meet App</h1>
+        <h1>Poop App</h1>
         <h4>Search a City to find events!</h4>
         <CitySearch
           locations={this.state.locations}
           updateEvents={this.updateEvents}
         />
-        <EventList events={this.state.events} />
         <NumberOfEvents
           numberOfEvents={this.state.numberOfEvents}
           updateEvents={this.updateEvents}
         />
+        <EventList events={this.state.events} />
+
+        <ScatterChart
+          width={400}
+          height={400}
+          margin={{
+            top: 20,
+            right: 20,
+            bottom: 20,
+            left: 20,
+          }}>
+          <CartesianGrid />
+          <XAxis type="category" dataKey="city" name="city" />
+          <YAxis type="number" dataKey="number" name="number of events" />
+          <Tooltip cursor={{ strokeDasharray: "3 3" }} />
+          <Scatter name="A school" data={this.getDatadata} fill="#8884d8" />
+        </ScatterChart>
+
         <WelcomeScreen
           showWelcomeScreen={this.state.showWelcomeScreen}
           getAccessToken={() => {
