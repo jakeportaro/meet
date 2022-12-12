@@ -78,7 +78,7 @@ class App extends Component {
       return <div className="App" />;
     return (
       <div className="App">
-        <h1>Poop App</h1>
+        <h1>Update App</h1>
         <h4>Search a City to find events!</h4>
         <CitySearch
           locations={this.state.locations}
@@ -88,8 +88,6 @@ class App extends Component {
           numberOfEvents={this.state.numberOfEvents}
           updateEvents={this.updateEvents}
         />
-        <EventList events={this.state.events} />
-
         <ScatterChart
           width={400}
           height={400}
@@ -105,6 +103,8 @@ class App extends Component {
           <Tooltip cursor={{ strokeDasharray: "3 3" }} />
           <Scatter name="A school" data={this.getDatadata} fill="#8884d8" />
         </ScatterChart>
+
+        <EventList events={this.state.events} />
 
         <WelcomeScreen
           showWelcomeScreen={this.state.showWelcomeScreen}
