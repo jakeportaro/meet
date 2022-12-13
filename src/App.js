@@ -15,7 +15,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import EventGenre from "./EventGenre";
+// import EventGenre from "./EventGenre";
 
 class App extends Component {
   state = {
@@ -91,7 +91,7 @@ class App extends Component {
           updateEvents={this.updateEvents}
         />
         <div className="data-vis-wrapper">
-          <EventGenre events={this.events} />
+          {/* <EventGenre events={this.events} /> */}
         <ResponsiveContainer height={400} >
           <ScatterChart
             margin={{
