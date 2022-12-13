@@ -101,7 +101,7 @@ class App extends Component {
           <XAxis type="category" dataKey="city" name="city" />
           <YAxis type="number" dataKey="number" name="number of events" />
           <Tooltip cursor={{ strokeDasharray: "3 3" }} />
-          <Scatter data={this.getData} fill="#8884d8" />
+          <Scatter data={this.getData()} fill="#8884d8" />
         </ScatterChart>
 
         <EventList events={this.state.events} />
