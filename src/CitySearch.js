@@ -26,6 +26,7 @@ class CitySearch extends Component {
     showSuggestions: undefined,
     location: [],
     infoText: '',
+    showInfoAlert: true,
   };
   handleInputChanged = (event) => {
     const value = event.target.value;
@@ -50,6 +51,7 @@ class CitySearch extends Component {
     this.setState({
       query: suggestion,
       showSuggestions: false,
+      showInfoAlert: false,
     });
 
     this.props.updateEvents(suggestion);
