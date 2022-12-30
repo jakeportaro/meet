@@ -2,6 +2,24 @@ import React, { Component } from "react";
 import { InfoAlert } from './Alert';
 
 class CitySearch extends Component {
+
+  dropdownRef = React.createRef();
+
+  handleClickOutside = (event) => {
+    if (this.dropdownRef.current && !this.dropdownRef.current.contains(event.target)) {
+      this.setState({ showSuggestions: false });
+    }
+  };
+
+  componentDidMount() {
+    document.addEventListener("click", this.handleClickOutside);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("click", this.handleClickOutside);
+  }
+
+
   state = {
     query: "",
     suggestions: [],
@@ -50,6 +68,7 @@ class CitySearch extends Component {
           }}
         />
         <ul
+          ref={this.dropdownRef}
           className="suggestions"
           style={this.state.showSuggestions ? {} : { display: "none" }}>
           {this.state.suggestions.map((suggestion) => (
