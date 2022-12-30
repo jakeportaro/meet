@@ -80,7 +80,7 @@ class App extends Component {
       return <div className="App" />;
     return (
       <div className="App">
-        <h1>Update App</h1>
+        <h1>Meet App</h1>
         <h4>Search a City to find events!</h4>
         <CitySearch
           locations={this.state.locations}
